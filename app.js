@@ -1,10 +1,10 @@
 var express = require('express');
 var app = express();
 var db = require('./db');// ADD THESE TWO LINES
-
 var UserController = require('./user/UserController');
 
 app.use('/', UserController);
+
 
 
 app.use((req, res, next) => {
@@ -12,6 +12,8 @@ app.use((req, res, next) => {
         message: 'It works!'
     });
 });
+
+
 
 
 module.exports = app;
