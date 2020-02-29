@@ -1,5 +1,6 @@
 const Synapse = require('synapsenode');
 const Client = Synapse.Client;
+//const User_New = Synapse.User;
 
 const test = new Client({
   client_id: "client_id_pTnLwjEimlbugyQI6e7BkodXcJtGvx4fD3sMAWRZ",
@@ -7,11 +8,12 @@ const test = new Client({
   fingerprint: "e0a65e2d87df33a88c7a30579776f76a",
   ip_address: "192.168.1.10",
   // isProduction boolean determines if production (true) or sandbox (false) endpoint is used
-  isProduction: false
-  
+  isProduction: false  
 });
 
+
 exports.SynapseClient = test;
+
 // module.exports = {
 //     test
 // };
