@@ -1,8 +1,8 @@
 const Synapse = require('synapsenode');
 const Client = Synapse.Client;
-//const User_New = Synapse.User;
+const New_User = Synapse.User;
 
-const test = new Client({
+const client = new Client({
   client_id: "client_id_pTnLwjEimlbugyQI6e7BkodXcJtGvx4fD3sMAWRZ",
   client_secret: "client_secret_BjZvJowtKDqLyxQV1F0lrIpOCN6aiu5Wkb87U4nh",
   fingerprint: "e0a65e2d87df33a88c7a30579776f76a",
@@ -12,7 +12,9 @@ const test = new Client({
 });
 
 
-exports.SynapseClient = test;
+
+exports.SynapseClient = client;
+exports.SynapseUser = New_User;
 
 // module.exports = {
 //     test
