@@ -1,33 +1,29 @@
 1. createUser payload
     {
-        "logins": [
-            { "email": "test@synapsepay.com" }
-        ],
-        "phone_numbers": [
-            "901.111.1111",
-            "test@synapsepay.com"
-        ],
-        "legal_names": ["___"],
-        "extra": {
-            "supp_id": "122eddfgbeafrfvbbb",
-            "cip_tag":1,
-            "is_business": true
-        }
-    }
+    "phone_number": "8622858854",
+    "legal_names": "payload legalnames",
+    "name": "payload legalnames",
+    "alias": "payload legalnames", 
+    "email": "payload@email.com",    
+    "entity_scope": "Airport",
+    "entity_type": "M",
+    "ip_address": "::1",
+    "day": 1,
+    "month": 12,
+    "year": 1990,
+    "address_street": "304 Harrison Avenue",
+	  "address_city":"Harrison",
+    "address_subdivision": "NJ",
+    "address_postal_code": "07029",
+    "address_country_code": "US",
+    "password":"IamShrek!2",
+    "supp":"testing"
+}
 
 2. patch user payload
 {
-  documents: [
-    {
-      id: "ab43a7aa8e7b4cc4b551f590afc43ffa6185693ed19a98ccf9ebe54c6e0b8efc",
-      virtual_docs: [
-        {
-          document_value: "2222",
-          document_type: "SSN"
-        }
-      ]
-    }
-  ]
+    "SSN": "2222",
+    "GOVT_ID": "data/application/bas64"
 }
 
 3. createNode payload for DEPOSIT-US

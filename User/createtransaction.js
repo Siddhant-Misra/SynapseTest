@@ -15,56 +15,55 @@ function runTransaction(nodes, user) {
     var achNode;
     var depNode;
     nodes.forEach(node => {
-                    if (node.type == 'ACH-US') {
-                        if (!achNode) {
-                            achNode = node;
-                        }
-                    }
-                    if (node.type == 'IB-DEPOSIT-US') {
-                        if (!depNode) {
-                            depNode = node;
-                        }
-                    }
-                });
-                const achtransc = {
-                    to: {
-                        type: depNode.type,
-                        id: depNode._id,
-                    },
-                    amount: {
-                        amount: 100.1,
-                        currency: "USD"
-                    },
-                    extra: {
-                        ip: "127.0.0.1",
-                        note: "Test transaction"
-                    }
-                };
-                user.createTransaction(achNode._id, achtransc).then((response) => {
-                    console.log(response.data);
-                    return response;
-                }).catch(function(error) {
-                    console.log(error);
-                });
+        if (node.type == 'ACH-US') {
+            if (!achNode) {
+                achNode = node;
+            }
+        }
+        if (node.type == 'IB-DEPOSIT-US') {
+            if (!depNode) {
+                depNode = node;
+            }
+        }
+    });
+    const achtransc = {
+        to: {
+            type: depNode.type,
+            id: depNode._id,
+        },
+        amount: {
+            amount: 100.1,
+            currency: "USD"
+        },
+        extra: {
+            ip: "127.0.0.1",
+            note: "Test transaction"
+        }
+    };
+    user.createTransaction(achNode._id, achtransc).then((response) => {
+        console.log(response.data);
+        return response;
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 function transactioncreate(userId) {
     synapse.SynapseClient.getUser(userId)
-        .then(user => 
-            { return user }
+        .then(user => { return user }
         )
         .then((user) => {
-            user.getAllUserNodes().then(function(result){
+            user.getAllUserNodes().then(function (result) {
                 var nodes = result.data.nodes;
-                // 5. If no nodes, error
+                // If no nodes, error
                 if (!nodes || nodes.length == 0) {
                     console.log("No nodes for user, please create new nodes ");
                     return;
                 }
-                else{
-                // 6. Create transaction
-                runTransaction(nodes, user);
-            }
+                else {
+                    // Create transaction
+                    runTransaction(nodes, user);
+                }
             }).catch(err => {
                 console.log("Transaction Error: ", err);
             });
@@ -73,7 +72,7 @@ function transactioncreate(userId) {
 
 function cron() {
     // 1. Get all users;
-    synapse.SynapseClient.getAllUsers().then(function(result) {
+    synapse.SynapseClient.getAllUsers().then(function (result) {
         var users = result.data.users;
         // 2. For each user
         for (var index in users) {

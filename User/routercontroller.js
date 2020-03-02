@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var synapse = require('../Synapsecode/client.js')
 var User = require('./user.js');
 var patch = require('./userpatch.js');
-var createnode = require('./createnode.js');
+// var createUser = require('./createuser.js');
+var create_node = require('./createnode.js');
 var dbo = require('./user.js');
 
 var cron = require('./createtransaction.js');
@@ -83,37 +84,68 @@ router.get('/getallnodes', function (req, res) {
     });
 });
 
-//CREATE A USER AND STORE VALUES ON MONGODB
-router.post('/createmongo', function (req, res) {
-    User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        address: req.body.address,
-        fingerprint: req.body.fingerprint,
-        synapse_user_id: req.body.synapse_user_id
-    },
-        function (err, user) {
-            if (err) return res.status(500).send("There was a problem adding the information to the database.");
-            res.status(200).send(user);
-        });
-});
-
 //CREATE USER WITH BASE DOCS ON SYNAPSEFI
 router.post('/postusersfi', function (req, res) {
-    console.log(req.body);
-    console.log();
-    synapse.SynapseClient.createUser(payload).then(response => {
-        console.log(response);
-        response = JSON.stringify(response);
-        res.status(200).send(response);
-        console.log(response);
-    })
-        .catch(err => {
+    payload = req.body;
+    const basedocs = {
+        logins: [
+            {
+            email: payload.email,
+            password: payload.password
+          }
+      ],
+        phone_numbers: [payload.phone_number],
+        legal_names: [payload.legal_names],
+        documents: [
+                  {   
+                      name: payload.name,
+                      alias: payload.name, 
+                      email: payload.email,    
+                      phone_number: payload.phone_number,            
+                      entity_scope: payload.entity_scope,
+                      entity_type: payload.entity_type,
+                      ip: payload.ip_address,
+                      day: payload.day,
+                      month: payload.month,
+                      year: payload.year,
+                      address_street: payload.address_street,
+                      address_city:payload.address_city,
+                      address_subdivision: payload.address_subdivision,
+                      address_postal_code: payload.address_postal_code,
+                      address_country_code: payload.address_country_code
+                  }
+              ],
+        extra: {
+                supp_id: payload.supp,
+                cip_tag:1,
+                is_business: false
+              }
+      }; 
+    synapse.SynapseClient.createUser(basedocs,payload.ip_address).then(response => {
+        // console.log({ "response": response.data, "status_code": response.status });
+        console.log(); 
+        var id = response.id;
+        var address = payload.address_street + " " + payload.address_city + " " +  
+                        payload.address_subdivision + " " + payload.address_postal_code + " " + 
+                        payload.address_country_code;
+        User.create({
+            name:  payload.name,
+            email: payload.email,
+            password: payload.password,
+            address: address,
+            synapse_user_id: id
+        },
+            function (err, User) {
+                if (err) return res.status(500).send("There was a problem adding the information to the database.");
+            });
+        res.status(200).send(response.body);
+        
+    }).catch(err => {
             console.log("Create User Error: ", err);
-            res.status(500).json("create user error");
-        });
-});
+        });  
+    });  
+
+    
 
 // RETURNS ALL THE USERS IN THE DATABASE
 router.get('/getallusers', function (req, res) {
@@ -129,36 +161,21 @@ router.get('/getallusers', function (req, res) {
 });
 
 // PATCH SUB DOCUMENTS 
-router.patch('/:user_id/addsubdocuments', function (req, res) {
+router.patch('/:userID/addsubdocuments', function (req, res) {
     var payload = req.body;
-    // const user_id = req.params.user_id;
-    const userID = "5e58c2d15b5a1e007de0d160";
+    const userID = req.params.userID;
     patch.patchuser(userID, payload);
-    res.status(200).json({ "status": "success" });
-    synapse.SynapseClient.getUser(userID).then(function (result) {
-        result = result.data;
-        try {
-            res.status(200).status(result);
-        } catch (e) {
-            console.log(e);
-        }
-    })
+    res.status(200).send({"response":"Success"});
 });
 
 
 // CREATE A NODE
-router.post('/createnodesfi', function (req, res) {
+router.post('/:userID/createnodesfi', function (req, res) {
     console.log(req.body);
-    createnode.createUser(body).then(response => {
-        console.log(response);
-        response = JSON.stringify(response);
-        res.status(200).send(response);
-        console.log(response);
-    })
-        .catch(err => {
-            console.log("Create User Error: ", err);
-            res.status(500).json("create user error");
-        });
+    body = req.body;
+    const userID = req.params.userID;
+    create_node.createnode(userID,body)
+    
 });
 
 // RETURNS ALL THE Nodes 
