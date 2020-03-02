@@ -193,21 +193,23 @@ npm install synapsenode
     "synapse_user_id": "5e5ccbb1c256c300730d861e"
 }
 ```
-> Screenshot From POSTMAN
+> Screenshot from POSTMAN
 ```
 
 ```
 
 5. Get User/id
-7. Simulation a CRON job from send and revceive 
+> Screenshot from POSTMAN
+```
 
-At this point if a user logs out, they can log back in with a username and a password. 
-parameters: email and password
-output : {"synapse_user_id": user_id} if successful. 
+```
 
-Here they can get back their UserID to continue with the application. 
+6. Simulating a CRON job from send and receive 
+> Screenshot from POSTMAN
+```
 
-At this point, after the patch call, the user should have the permission of "SEND-AND-RECEIVE".
+```
+Simulating a transaction every 30 seconds ONLY AND ONLY if the user's permission is in the status of "SEND-AND-RECEIVE".
+To save time, I have assumed that every 30 seconds is 30 months. We pull a small amount of money from an ACH-US ndoe to a IB-DEPOSIT-US node. 
 
-We are simulating a transaction every 30 seconds ONLY AND ONLY IF their user's permission is in the status of "SEND-AND-RECEIVE"
-with a scheduler. 
+This will allow the user to save money every 30 days (in my scheduler, 30 seconds).
