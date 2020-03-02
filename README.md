@@ -42,7 +42,97 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "_id": "5e5ccbb1c256c300730d861e",
+    "_links": {
+        "self": {
+            "href": "https://uat-api.synapsefi.com/v3.1/users/5e5ccbb1c256c300730d861e"
+        }
+    },
+    "account_closure_date": null,
+    "client": {
+        "id": "5e484d83cb3cd400528c2edb",
+        "name": "Siddhant Misra"
+    },
+    "documents": [
+        {
+            "entity_scope": "Airport",
+            "entity_type": "M",
+            "id": "4ff1d6a246520fb452c8a6bd9d342fa118db835f5a5ee7f35df3a1912109621c",
+            "id_score": null,
+            "is_active": true,
+            "name": "payload legalname1s",
+            "permission_scope": "UNVERIFIED",
+            "physical_docs": [],
+            "required_edd_docs": [],
+            "social_docs": [
+                {
+                    "document_type": "EMAIL",
+                    "id": "6f6337ab8e67de3c865de94d6108aba7fa93d4d602910451bf617d5ee6a7ec4c",
+                    "last_updated": 1583139759192,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "IP",
+                    "id": "28d9177b22c127d9a51d8903893864accf6e553ac326704a4c0d585eaad2516a",
+                    "last_updated": 1583139759233,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "DATE",
+                    "id": "e31324e577afaa98b6884b0f68ed19110f2957b02f8799c18834f4d83fc92c4e",
+                    "last_updated": 1583139759269,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "ADDRESS",
+                    "id": "29bdeb357ac3df135623d25092466307bdd1d764f370684098e80c7bfccb77f9",
+                    "last_updated": 1583139759259,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "PHONE_NUMBER",
+                    "id": "3c545f89ce4526eaa44ee7d76fb238eaf3025b0edc853a112b06f44ad42eda0d",
+                    "last_updated": 1583139759203,
+                    "status": "SUBMITTED|REVIEWING"
+                }
+            ],
+            "virtual_docs": [],
+            "watchlists": "PENDING"
+        }
+    ],
+    "emails": [],
+    "extra": {
+        "cip_tag": 1,
+        "date_joined": 1583139757987,
+        "extra_security": false,
+        "is_business": false,
+        "is_trusted": false,
+        "last_updated": 1583139757987,
+        "public_note": null,
+        "supp_id": "testing"
+    },
+    "flag": "NOT-FLAGGED",
+    "flag_code": null,
+    "is_hidden": false,
+    "legal_names": [
+        "payload legalname1s"
+    ],
+    "logins": [
+        {
+            "email": "payloa1d@email.com",
+            "scope": "READ_AND_WRITE"
+        }
+    ],
+    "permission": "UNVERIFIED",
+    "permission_code": null,
+    "phone_numbers": [
+        "8622858854"
+    ],
+    "photos": [],
+    "refresh_token": "refresh_ZK50HAJO9gUlmG7rVjLp3su18okMItc6dSyfx2NF",
+    "watchlists": "PENDING"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
@@ -61,7 +151,9 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "response": "Success"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
@@ -80,7 +172,9 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "response": "Success"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
