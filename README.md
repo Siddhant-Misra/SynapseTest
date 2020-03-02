@@ -42,14 +42,104 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "_id": "5e5ccbb1c256c300730d861e",
+    "_links": {
+        "self": {
+            "href": "https://uat-api.synapsefi.com/v3.1/users/5e5ccbb1c256c300730d861e"
+        }
+    },
+    "account_closure_date": null,
+    "client": {
+        "id": "5e484d83cb3cd400528c2edb",
+        "name": "Siddhant Misra"
+    },
+    "documents": [
+        {
+            "entity_scope": "Airport",
+            "entity_type": "M",
+            "id": "4ff1d6a246520fb452c8a6bd9d342fa118db835f5a5ee7f35df3a1912109621c",
+            "id_score": null,
+            "is_active": true,
+            "name": "payload legalname1s",
+            "permission_scope": "UNVERIFIED",
+            "physical_docs": [],
+            "required_edd_docs": [],
+            "social_docs": [
+                {
+                    "document_type": "EMAIL",
+                    "id": "6f6337ab8e67de3c865de94d6108aba7fa93d4d602910451bf617d5ee6a7ec4c",
+                    "last_updated": 1583139759192,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "IP",
+                    "id": "28d9177b22c127d9a51d8903893864accf6e553ac326704a4c0d585eaad2516a",
+                    "last_updated": 1583139759233,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "DATE",
+                    "id": "e31324e577afaa98b6884b0f68ed19110f2957b02f8799c18834f4d83fc92c4e",
+                    "last_updated": 1583139759269,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "ADDRESS",
+                    "id": "29bdeb357ac3df135623d25092466307bdd1d764f370684098e80c7bfccb77f9",
+                    "last_updated": 1583139759259,
+                    "status": "SUBMITTED|REVIEWING"
+                },
+                {
+                    "document_type": "PHONE_NUMBER",
+                    "id": "3c545f89ce4526eaa44ee7d76fb238eaf3025b0edc853a112b06f44ad42eda0d",
+                    "last_updated": 1583139759203,
+                    "status": "SUBMITTED|REVIEWING"
+                }
+            ],
+            "virtual_docs": [],
+            "watchlists": "PENDING"
+        }
+    ],
+    "emails": [],
+    "extra": {
+        "cip_tag": 1,
+        "date_joined": 1583139757987,
+        "extra_security": false,
+        "is_business": false,
+        "is_trusted": false,
+        "last_updated": 1583139757987,
+        "public_note": null,
+        "supp_id": "testing"
+    },
+    "flag": "NOT-FLAGGED",
+    "flag_code": null,
+    "is_hidden": false,
+    "legal_names": [
+        "payload legalname1s"
+    ],
+    "logins": [
+        {
+            "email": "payloa1d@email.com",
+            "scope": "READ_AND_WRITE"
+        }
+    ],
+    "permission": "UNVERIFIED",
+    "permission_code": null,
+    "phone_numbers": [
+        "8622858854"
+    ],
+    "photos": [],
+    "refresh_token": "refresh_ZK50HAJO9gUlmG7rVjLp3su18okMItc6dSyfx2NF",
+    "watchlists": "PENDING"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
 
 ```
 
-2. Patch - `https://localhost:3000/<USER-ID>/addsubdocuments`
+2. Patch User  - `https://localhost:3000/<USER-ID>/addsubdocuments`
 
 > Sample Payload:
 
@@ -61,7 +151,9 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "response": "Success"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
@@ -80,72 +172,44 @@ npm install synapsenode
 ```
 > Sample Response:
 ```
-
+{
+    "response": "Success"
+}
 ```
 > Screenshot From `uat-dashboard.synapsefi.com`
 ```
 
 ```
+4. Login(Get) - `https://localhost:3000/userLogin`
 
-At this point if a user logsout, they can log back in with a username and a password. 
-parameters: email and password
-output : {"synapse_user_id": user_id} if successful. Here they can get back their UserID to continue with the application. 
-
-At this point, after the patch call, the user should have the permission of "SEND-AND-RECEIVE".
-
-Now we can create two nodes ACH-US and DEPOSIT-US.
-
-We are simulating a transaction every 30 seconds ONLY AND ONLY IF their user's permission is in the status of "SEND-AND-RECEIVE"
-wity a scheduler. 
+> Sample Parameters:
 
 ```
-POST USER - 
+?email=payloa1d@email.com&password=IamShrek!2
 ```
+> Sample Response:
 ```
-payload: 
 {
+    "synapse_user_id": "5e5ccbb1c256c300730d861e"
 }
 ```
+> Screenshot from POSTMAN
 ```
-response
-1. createUser payload
-    {
-    "phone_number": "8622858854",
-    "legal_names": "payload legalnames1",
-    "name": "payload legalnames1",
-    "alias": "payload legalnames1", 
-    "email": "payload1@email.com",    
-    "entity_scope": "Airport",
-    "entity_type": "M",
-    "ip_address": "::1",
-    "day": 1,
-    "month": 12,
-    "year": 1990,
-    "address_street": "304 Harrison Avenue",
-	  "address_city":"Harrison",
-    "address_subdivision": "NJ",
-    "address_postal_code": "07029",
-    "address_country_code": "US",
-    "password":"IamShrek!2",
-    "supp":"testing"
-}
 
-2. patch user payload
-{
-    "SSN": "2222",
-    "GOVT_ID": "data/application/bas64"
-}
+```
 
-3. createNode payload for ACH-US
-{
-    bank_id: "synapse_good",
-    bank_pw: "test1234",
-    bank_name: "fake"
-}
+5. Get User/id
+> Screenshot from POSTMAN
+```
 
-4. Login ->  
-parameters: email and password
-output : {"synapse_user_id": user_id} if successful
+```
 
-5. get all nodes for user 
+6. Simulating a CRON job from send and receive 
+> Screenshot from POSTMAN
+```
 
+```
+Simulating a transaction every 30 seconds ONLY AND ONLY if the user's permission is in the status of "SEND-AND-RECEIVE".
+To save time, I have assumed that every 30 seconds is 30 months. We pull a small amount of money from an ACH-US ndoe to a IB-DEPOSIT-US node. 
+
+This will allow the user to save money every 30 days (in my scheduler, 30 seconds).
