@@ -219,4 +219,4 @@ To see this simulation, start the server and wait for 30 seconds - then you can 
 ```
 
 FLOW DIAGRAM
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/transaction.png" target="_blank"> FLOW DIAGRAM</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/FLOW.png" target="_blank"> FLOW DIAGRAM</a>
