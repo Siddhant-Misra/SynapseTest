@@ -217,3 +217,6 @@ This will allow the user to save money every 30 days (in my scheduler, 30 second
 
 To see this simulation, start the server and wait for 30 seconds - then you can see the Transactions.
 ```
+
+FLOW DIAGRAM
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/transaction.png" target="_blank"> FLOW DIAGRAM</a>
