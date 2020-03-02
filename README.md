@@ -139,7 +139,7 @@ npm install synapsenode
 
 ```
 
-2. Patch - `https://localhost:3000/<USER-ID>/addsubdocuments`
+2. Patch User  - `https://localhost:3000/<USER-ID>/addsubdocuments`
 
 > Sample Payload:
 
@@ -180,7 +180,26 @@ npm install synapsenode
 ```
 
 ```
+4. Login(Get) - `https://localhost:3000/userLogin`
 
+> Sample Parameters:
+
+```
+?email=payloa1d@email.com&password=IamShrek!2
+```
+> Sample Response:
+```
+{
+    "synapse_user_id": "5e5ccbb1c256c300730d861e"
+}
+```
+> Screenshot From POSTMAN
+```
+
+```
+
+5. Get User/id
+7. Simulation a CRON job from send and revceive 
 
 At this point if a user logs out, they can log back in with a username and a password. 
 parameters: email and password
