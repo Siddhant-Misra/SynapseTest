@@ -136,7 +136,7 @@ npm install synapsenode
 ```
 > Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/synapseusers.png" target="_blank">CREATE USER</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/synapseusers.png" target="_blank">CREATE USER</a>
 
 2. Patch User  - `https://localhost:3000/<USER-ID>/addsubdocuments`
 
@@ -156,7 +156,7 @@ npm install synapsenode
 ```
 > Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/patchusers.png" target="_blank">PATCH USERS</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/patchuser.png" target="_blank">PATCH USERS</a>
 
 3. Create a Node - `https://localhost:3000/<USER-ID>/createnodesfi`
 
@@ -177,7 +177,7 @@ npm install synapsenode
 ```
 > Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/create2nodes.png" target="_blank">CREATE 2 NODES</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/create2nodes.png" target="_blank">CREATE 2 NODES</a>
 
 
 4. Login(Get) - `https://localhost:3000/userLogin`
@@ -195,19 +195,19 @@ npm install synapsenode
 ```
 > Link to Screenshot from POSTMAN
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/loginauthentication.png" target="_blank"> LOGIN AUTHENTICATION SCREENSHOT</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/loginauthentication.png" target="_blank"> LOGIN AUTHENTICATION SCREENSHOT</a>
 
 
 5. Get User/id
 > Link to Screenshot from POSTMAN
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/getbyid.png" target="_blank"> GET BY ID SCREENSHOT</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/getbyid.png" target="_blank"> GET BY ID SCREENSHOT</a>
 
 6. Simulating a CRON job from send and receive 
 > Link to Screenshot from POSTMAN
 
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/transaction.png" target="_blank"> TRANSACTION SCREENSHOT</a>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/transaction.png" target="_blank"> TRANSACTION SCREENSHOT</a>
 
 
 
