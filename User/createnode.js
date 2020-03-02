@@ -6,9 +6,6 @@ var test_user = {
     user_id: synapse_user_id,
     fullDehydrate: true
 }
-// const krypton_node_payload = {
-//     "nickname": "My Deposit Account"
-// }
 
 const krypton_ach_node_payload = {
     bank_id: "synapse_good",
@@ -17,9 +14,8 @@ const krypton_ach_node_payload = {
 }
 
 const fullDehydrate = true;
-console.log("-----------------------------------------------------------------");
 
-//create 1st node function starts
+//create 1st node function 
 function createnodeach(user, payload) {
     const ach = {
         type: "ACH-US",
@@ -45,11 +41,7 @@ function createnodeach(user, payload) {
         });
 }
 
-//create 1st function ends
-
-console.log("------------------------------------------------------------------------------------------------------------------");
-
-//create 2nd node function starts
+//create 2nd node function 
 function createnodedeposit(user, payload) {
     const deposit = {
         type: "IB-DEPOSIT-US",
@@ -67,24 +59,23 @@ function createnodedeposit(user, payload) {
         });
 }
 
-//create 2nd node function ends
-
 function create_node(userId, payload) {
     synapse.SynapseClient.getUser(userId, fullDehydrate)
         .then(result => {
-            return result;  
+            return result;
         }
         )
         .then((result) => {
             createnodeach(result, payload); 
             return result;           
         }
-        ).then((result) => {
+        )
+        .then((result) => {
             createnodedeposit(result);
         });
 }
 
-var testing = create_node(synapse_user_id, krypton_ach_node_payload);
+//var testing = create_node(synapse_user_id, krypton_ach_node_payload);
 
 
 module.exports.createnode = create_node;

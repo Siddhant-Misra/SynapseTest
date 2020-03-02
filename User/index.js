@@ -31,9 +31,9 @@
 // });
 
 
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L46
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L58
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L79
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L86
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L239
-https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L265
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L46
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L58
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L79
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L86
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L239
+// https://github.com/SynapseFI/SynapseNode/blob/master/test/userTests.js#L265

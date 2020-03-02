@@ -1,6 +1,7 @@
 // User.js
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://siddm22:siddhant1@ds251948.mlab.com:51948/synapsefi'); 
+mongoose.connect('mongodb://siddm22:siddhant1@ds251948.mlab.com:51948/synapsefi');
+ 
 var UserSchema = new mongoose.Schema({  
   name: String,
   email: String,
