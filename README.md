@@ -134,10 +134,9 @@ npm install synapsenode
     "watchlists": "PENDING"
 }
 ```
-> Screenshot From `uat-dashboard.synapsefi.com`
-```
+> Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-```
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/synapseusers.png" target="_blank">CREATE USER</a>
 
 2. Patch User  - `https://localhost:3000/<USER-ID>/addsubdocuments`
 
@@ -155,10 +154,10 @@ npm install synapsenode
     "response": "Success"
 }
 ```
-> Screenshot From `uat-dashboard.synapsefi.com`
-```
+> Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-```
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/patchusers.png" target="_blank">PATCH USERS</a>
+
 3. Create a Node - `https://localhost:3000/<USER-ID>/createnodesfi`
 
 > Sample Payload:
@@ -176,10 +175,11 @@ npm install synapsenode
     "response": "Success"
 }
 ```
-> Screenshot From `uat-dashboard.synapsefi.com`
-```
+> Link to Screenshot From `uat-dashboard.synapsefi.com`
 
-```
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/create2nodes.png" target="_blank">CREATE 2 NODES</a>
+
+
 4. Login(Get) - `https://localhost:3000/userLogin`
 
 > Sample Parameters:
@@ -193,23 +193,33 @@ npm install synapsenode
     "synapse_user_id": "5e5ccbb1c256c300730d861e"
 }
 ```
-> Screenshot from POSTMAN
-```
+> Link to Screenshot from POSTMAN
 
-```
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/loginauthentication.png" target="_blank"> LOGIN AUTHENTICATION SCREENSHOT</a>
+
 
 5. Get User/id
-> Screenshot from POSTMAN
-```
+> Link to Screenshot from POSTMAN
 
-```
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/getbyid.png" target="_blank"> GET BY ID SCREENSHOT</a>
 
 6. Simulating a CRON job from send and receive 
-> Screenshot from POSTMAN
+> Link to Screenshot from POSTMAN
+
+
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/transaction.png" target="_blank"> TRANSACTION SCREENSHOT</a>
+
+
+
+> Process of Savings Application:
+
 ```
-![transaction](https://github.com/Siddhant-Misra/SynapseTest/tree/master/Screenshots/transaction.png)
-```
-Simulating a transaction every 30 seconds ONLY AND ONLY if the user's permission is in the status of "SEND-AND-RECEIVE".
-To save time, I have assumed that every 30 seconds is 30 months. We pull a small amount of money from an ACH-US ndoe to a IB-DEPOSIT-US node. 
+This API takes Money from the ACH account once a month - right now the default amount is about 100.1 $ but in the future development of this application we could create dynamic values.
+
+This simulates a transaction every 30 seconds ONLY AND ONLY if the user's permission is in the status of "SEND-AND-RECEIVE" and skips for the others.
+To save time, I have assumed that every 30 seconds is 30 days. We pull a small amount of money from an ACH-US ndoe to a IB-DEPOSIT-US node. 
 
 This will allow the user to save money every 30 days (in my scheduler, 30 seconds).
+
+To see this simulation, start the server and wait for 30 seconds - then you can see the Transactions.
+```
