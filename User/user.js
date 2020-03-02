@@ -1,5 +1,7 @@
 // User.js
-var mongoose = require('mongoose');  
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://siddm22:siddhant1@ds251948.mlab.com:51948/synapsefi');
+ 
 var UserSchema = new mongoose.Schema({  
   name: String,
   email: String,
@@ -7,16 +9,11 @@ var UserSchema = new mongoose.Schema({
   address: String,  
   fingerprint: String,
   synapse_user_id: String
-
-});
-
-var subdocuments = new mongoose.Schema({
-  SSN: String, 
-  TIN: String,
 });
 
 mongoose.model('User', UserSchema);
-mongoose.model('Docs', subdocuments);
 
 module.exports = mongoose.model('User');
-module.exports = mongoose.model('Docs');
+
+//{"user_id":asdf df ,  "fingerprint": sdfasdf, "stats":{"bank_balance":12312, "income": 0-7000, "expenditure": 0-7000}}
+// if exp > income - dont pull money; if bank_balance > 3000: 500 extra
