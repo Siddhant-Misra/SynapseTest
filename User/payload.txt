@@ -26,38 +26,18 @@
     "GOVT_ID": "data/application/bas64"
 }
 
-3. createNode payload for DEPOSIT-US
+3. createNode payload for ACH-US
 {
-  "type": "DEPOSIT-US",
-  "info": {
-    "nickname": "My Deposit Account",
-    "document_id": "2a4a5957a3a62aaac1a0dd0edcae96ea2cdee688ec6337b20745eed8869e3ac8"
-  }
+    bank_id: "synapse_good",
+    bank_pw: "test1234",
+    bank_name: "fake"
 }
 
-4. createNode payload for ACH-US
-{
-  "type": "ACH-US",
-  "info": {
-    "nickname": "My ACH Account",
-    "document_id": "2a4a5957a3a62aaac1a0dd0edcae96ea2cdee688ec6337b20745eed8869e3ac8"
-  }
-}
+4. Login ->  
+parameters: email and password
+output : {"synapse_user_id": user_id} if successful
 
-5. createTransaction payload
-nodeID = "5c8abccb4b7ba9102a61010d"
-body = {
-  to: {
-    type: "DEPOSIT-US",
-    id: "5c8ac55542edab2b2665cbf1"
-  },
-  amount: {
-    amount: 100.1,
-    currency: "USD"
-  },
-  extra: {
-    ip: "127.0.0.1",
-    note: "Test transaction"
-  }
-}
+5. get all nodes for user 
 
+ 
+FLOW

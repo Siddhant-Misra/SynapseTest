@@ -175,7 +175,7 @@ router.post('/:userID/createnodesfi', function (req, res) {
     body = req.body;
     const userID = req.params.userID;
     create_node.createnode(userID,body)
-    
+    res.status(200).send({"response":"Success"});
 });
 
 // RETURNS ALL THE Nodes 
@@ -200,10 +200,10 @@ router.post('/createtransaction', function (req, res) {
         res.status(200).send(response);
         console.log(response);
     })
-        .catch(err => {
-            console.log("Create transaction Error: ", err);
-            res.status(500).json("create t error");
-        });
+    .catch(err => {
+        console.log("Create transaction Error: ", err);
+        res.status(500).json("create t error");
+    });
 });
 
 module.exports = router;

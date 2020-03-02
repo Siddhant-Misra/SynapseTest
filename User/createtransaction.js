@@ -13,7 +13,7 @@ var synapse_user_id = "5e58c2d15b5a1e007de0d160";
 
 function runTransaction(nodes, user) {
     var achNode;
-    var depNode;
+    var depNode;    
     nodes.forEach(node => {
         if (node.type == 'ACH-US') {
             if (!achNode) {
@@ -40,6 +40,7 @@ function runTransaction(nodes, user) {
             note: "Test transaction"
         }
     };
+
     user.createTransaction(achNode._id, achtransc).then((response) => {
         console.log(response.data);
         return response;
@@ -55,13 +56,13 @@ function transactioncreate(userId) {
         .then((user) => {
             user.getAllUserNodes().then(function (result) {
                 var nodes = result.data.nodes;
-                // If no nodes, error
+                // IF NO NODES, NO ERROR
                 if (!nodes || nodes.length == 0) {
                     console.log("No nodes for user, please create new nodes ");
                     return;
                 }
                 else {
-                    // Create transaction
+                    // CREATE TRANSACTION
                     runTransaction(nodes, user);
                 }
             }).catch(err => {
@@ -71,17 +72,17 @@ function transactioncreate(userId) {
 }
 
 function cron() {
-    // 1. Get all users;
+    // GET ALL USERS
     synapse.SynapseClient.getAllUsers().then(function (result) {
         var users = result.data.users;
-        // 2. For each user
+        // FOR EACH USER
         for (var index in users) {
             var user = users[index];
-            // 3. Check if permission
+            // CHECK IF PERMISSION
             if (user.permission == "SEND-AND-RECEIVE") {
                 console.log(user)
                 transactioncreate(user._id);
-                // 4. Get all user nodes
+                // GET ALL USER NODES
             } else {
                 console.log("User " + index + " with ID " + user._id + "does not have send receive permission");
             }
