@@ -207,7 +207,7 @@ npm install synapsenode
 6. Simulating a CRON job from send and receive 
 > Screenshot from POSTMAN
 ```
-
+![transaction]https://github.com/Siddhant-Misra/SynapseTest/master/Screenshots/transaction.png
 ```
 Simulating a transaction every 30 seconds ONLY AND ONLY if the user's permission is in the status of "SEND-AND-RECEIVE".
 To save time, I have assumed that every 30 seconds is 30 months. We pull a small amount of money from an ACH-US ndoe to a IB-DEPOSIT-US node. 
