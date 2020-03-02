@@ -9,7 +9,7 @@ var dbo = require('./user.js');
 
 var cron = require('./createtransaction.js');
 
-// starting scheduler to create multiple transactions
+// starting scheduler to create multiple transactions from ACH accounts to IB-DEPOSIT accounts
 console.log("Starting scheduler");
 var timer = setInterval(function () {
     console.log('You will see this message every second');
