@@ -11,52 +11,48 @@ var test_user = {
 }
 const krypton_update_payload = {
     "SSN": "2222",
-    "GOVT_ID": "data/application/bas64"
+    "GOVT_ID": "data:image/gif;base64,SUQs=="
 }
 
 const fullDehydrate = true;
 
 //update user function starts
-function updateUser(user, payload) {
-    const docs = {
-        documents: [
-            {
-                id: user.body.documents[0].id,
-                virtual_docs: [
-                    {
-                        document_value: payload.SSN,
-                        document_type: "SSN"
-                    }
-                ],
-                physical_docs: [
-                    {
-                      document_value: payload.GOVT_ID,
-                      document_type: "GOVT_ID"
-                    }
-                ]
-            }
-        ]
-    };
-    user.updateUser(docs).then(response => {
-        // console.log({ "response": response.data, "status_code": response.status });
-        console.log(response.data);     
-    }).catch(err => {
-            console.log("Create User Error: ", err);
-        });    
-}
 
 function patchUser(userId, payload) {
-    synapse.SynapseClient.getUser(userId, fullDehydrate)
-        .then(result => { return result }
-        )
-        .then((result) => {
-            var testuser = updateUser(result, payload);
-        }
-        );
+    synapse.SynapseClient.getUser(userId, fullDehydrate).then(user => { return user 
+    }).then((user) => {
+            const docs = {
+                documents: [
+                    {
+                        id: user.body.documents[0].id,
+                        virtual_docs: [
+                            {
+                                document_value: payload.SSN,
+                                document_type: "SSN"
+                            }
+                        ],
+                        physical_docs: [
+                            {
+                              document_value: payload.GOVT_ID,
+                              document_type: "GOVT_ID"
+                            }
+                        ]
+                    }
+                ]
+            };
+            user.updateUser(docs).then(response => {
+                // console.log({ "response": response.data, "status_code": response.status });
+                console.log(response);     
+            }).catch(err => {
+                    console.log("Patch User Error: ", err);
+                }); 
+        }).catch(err => {
+            console.log("test User Error: ", err.response);
+        }); 
 }
 
 
-// var testuser =  patchUser(synapse_user_id, krypton_update_payload);
+// var testuser =  patchingUser(synapse_user_id, krypton_update_payload);
 // console.log(testuser);
 
 module.exports.patchuser = patchUser;
