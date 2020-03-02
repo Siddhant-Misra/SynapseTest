@@ -134,9 +134,10 @@ npm install synapsenode
     "watchlists": "PENDING"
 }
 ```
-> Link to Screenshot From `uat-dashboard.synapsefi.com`
-
+> Link to Screenshot From `uat-dashboard.synapsefi.com`  
 <a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/synapseusers.png" target="_blank">CREATE USER</a>
+
+
 
 2. Patch User  - `https://localhost:3000/<USER-ID>/addsubdocuments`
 
@@ -154,8 +155,7 @@ npm install synapsenode
     "response": "Success"
 }
 ```
-> Link to Screenshot From `uat-dashboard.synapsefi.com`
-
+> Link to Screenshot From `uat-dashboard.synapsefi.com`  
 <a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/patchuser.png" target="_blank">PATCH USERS</a>
 
 3. Create a Node - `https://localhost:3000/<USER-ID>/createnodesfi`
@@ -175,8 +175,7 @@ npm install synapsenode
     "response": "Success"
 }
 ```
-> Link to Screenshot From `uat-dashboard.synapsefi.com`
-
+> Link to Screenshot From `uat-dashboard.synapsefi.com`  
 <a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/create2nodes.png" target="_blank">CREATE 2 NODES</a>
 
 
@@ -193,21 +192,16 @@ npm install synapsenode
     "synapse_user_id": "5e5ccbb1c256c300730d861e"
 }
 ```
-> Link to Screenshot from POSTMAN
+> Link to Screenshot from POSTMAN <br>
+<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/loginauthentication.png" target="_blank">LOGIN AUTHENTICATION</a>
 
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/loginauthentication.png" target="_blank"> LOGIN AUTHENTICATION SCREENSHOT</a>
 
 
 5. Get User/id
-> Link to Screenshot from POSTMAN
-
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/getbyid.png" target="_blank"> GET BY ID SCREENSHOT</a>
+> Link to Screenshot from POSTMAN<br><a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/getbyid.png" target="_blank"> GET BY ID SCREENSHOT</a>
 
 6. Simulating a CRON job from send and receive 
-> Link to Screenshot from POSTMAN
-
-
-<a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/transaction.png" target="_blank"> TRANSACTION SCREENSHOT</a>
+> Link to Screenshot from POSTMAN<br><a href= "https://github.com/Siddhant-Misra/SynapseTest/blob/master/Screenshots/transaction.png" target="_blank"> TRANSACTION SCREENSHOT</a>
 
 
 
