@@ -1,5 +1,7 @@
 # SynapseTest
 
+<p>This is a implementation of a REST API that uses the API of Synapsefi to mimick <a href="https://digit.co/" target=_blank>digit.co</a>.<br>
+
 ### FILES TO INSTALL
 ```
 npm install 
