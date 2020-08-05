@@ -1,6 +1,7 @@
 # SynapseTest
 
-<p>This is a implementation of a REST API that uses the API of Synapsefi to mimick <a href="https://digit.co/" target=_blank>digit.co</a>.<br>
+<p>This is a implementation of a REST API that uses the API of <a href="https://synapsefi.com/" target="_blank">Synapsefi</a> to mimic <a href="https://digit.co/" target="_blank">digit.co</a>.<br></p>
+<p>Synapsefi is a banking API platform. A user can create an acocunt, verify saod account using a government ID and a SSN. After verification, the user can then create two accounts. I used a CRON job to simulate a transaction from one account to another, hence showcasing a savings app. </p>
 
 ### FILES TO INSTALL
 ```
